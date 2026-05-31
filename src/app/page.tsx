@@ -49,7 +49,7 @@ export default function Home() {
               <Link href="/" className="flex items-center gap-3 group mb-7 w-fit">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="relative w-10 h-10"
+                  className="relative w-20 h-20"
                 >
                   <Image
                     src="/images/logo.png"
@@ -59,8 +59,8 @@ export default function Home() {
                   />
                 </motion.div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-serif font-bold text-white leading-none">VIRTUE</span>
-                  <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-primary mt-0.5">Dental Clinic</span>
+                  <span className="text-2xl font-serif font-bold text-white leading-none">VIRTUE</span>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary mt-1">Dental Clinic</span>
                 </div>
               </Link>
               <p className="text-white/50 leading-relaxed max-w-sm mb-8 text-sm">

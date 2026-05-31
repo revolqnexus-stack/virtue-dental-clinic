@@ -51,7 +51,7 @@ export default function Navbar() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-10 h-10"
+              className="relative w-20 h-20"
             >
               <Image
                 src="/images/logo.png"
@@ -62,8 +62,8 @@ export default function Navbar() {
               />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-lg font-serif font-bold text-foreground leading-none tracking-tight">VIRTUE</span>
-              <span className="text-[9px] font-bold uppercase tracking-[0.25em] text-primary/70 mt-0.5">Dental Clinic</span>
+              <span className="text-2xl font-serif font-bold text-foreground leading-none tracking-tight">VIRTUE</span>
+              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary/70 mt-1">Dental Clinic</span>
             </div>
           </Link>
 
