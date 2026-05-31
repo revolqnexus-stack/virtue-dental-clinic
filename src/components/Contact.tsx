@@ -1,166 +1,191 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin, Phone, Clock, Send, MessageCircle, Info } from "lucide-react";
+import { MapPin, Phone, Clock, Send, MessageCircle, Info, Mail } from "lucide-react";
 import Link from "next/link";
+
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Our Location",
+    content: (
+      <>
+        Manakkattu Avenue, 138/2,<br />
+        Pala Bypass Road, Vellappadu,<br />
+        Pala, Kottayam, Kerala — 686575
+      </>
+    ),
+    action: { label: "Get Directions", href: "https://maps.app.goo.gl/5DS1k9PnA9vQbMU2A", external: true },
+  },
+  {
+    icon: Phone,
+    title: "Connect with Us",
+    content: (
+      <>
+        <Link href="tel:+918156822525" className="font-semibold text-foreground hover:text-primary transition-colors block">
+          +91 81568 22525
+        </Link>
+        <Link href="https://wa.me/918156822525" className="text-primary font-bold hover:underline flex items-center gap-1.5 mt-1">
+          <MessageCircle className="w-3.5 h-3.5" /> Chat on WhatsApp
+        </Link>
+        <Link href="mailto:abhijitsebastian@gmail.com" className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-1.5 mt-1 text-sm">
+          <Mail className="w-3.5 h-3.5" /> abhijitsebastian@gmail.com
+        </Link>
+      </>
+    ),
+    action: null,
+  },
+  {
+    icon: Clock,
+    title: "Opening Hours",
+    content: (
+      <>
+        Monday – Saturday<br />
+        <span className="font-semibold text-foreground">10:00 AM – 07:00 PM</span><br />
+        <span className="text-destructive text-sm italic mt-1 inline-block">Closed on Sundays</span>
+      </>
+    ),
+    action: null,
+  },
+];
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-24 ivory-gradient">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-28 relative overflow-hidden">
+      <div className="absolute inset-0 ivory-gradient" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+      <div className="relative container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
+
+          {/* Left */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-xl"
+            transition={{ duration: 0.6 }}
           >
-            <h2 className="text-4xl lg:text-5xl font-serif text-foreground mb-10 leading-[1.1]">
-              On the bypass road <br />
-              <span className="italic text-primary underline underline-offset-8">in Pala.</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-xs font-bold uppercase tracking-widest mb-6">
+              Find Us
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-serif text-foreground mb-6 leading-tight">
+              On the bypass road{" "}
+              <span className="italic text-primary">in Pala.</span>
             </h2>
-            
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              Find us along Pala Bypass Road in Vellappadu, with ample parking 
-              for private vehicles. Virtue Dental Clinic serves as a specialist 
-              hub for Pala and the wider Kottayam district.
+            <p className="text-muted-foreground leading-relaxed mb-12 max-w-md">
+              Find us along Pala Bypass Road in Vellappadu, with ample parking for private vehicles. Virtue Dental Clinic serves as a specialist hub for Pala and the wider Kottayam district.
             </p>
 
-            <div className="space-y-10">
-              <div className="flex gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="text-primary w-7 h-7" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-serif text-foreground mb-2">Our Location</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Manakkattu Avenue, 138/2, <br />
-                    Pala Bypass Road, Vellappadu, <br />
-                    Pala, Kottayam, Kerala — 686575
-                  </p>
-                  <Link
-                    href="https://maps.app.goo.gl/5DS1k9PnA9vQbMU2A"
-                    target="_blank"
-                    className="inline-flex items-center gap-1 mt-3 text-sm text-primary font-medium hover:underline"
-                  >
-                    <MapPin className="w-3.5 h-3.5" /> Get Directions
-                  </Link>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0">
-                  <Phone className="text-primary w-7 h-7" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-serif text-foreground mb-2">Connect with Us</h4>
-                  <p className="text-muted-foreground leading-relaxed mb-4">
-                    For appointments and specialist inquiries:
-                  </p>
-                  <div className="flex flex-col gap-3">
-                    <Link 
-                      href="tel:+918156822525" 
-                      className="text-foreground font-medium hover:text-primary transition-colors flex items-center gap-2"
-                    >
-                      +91 81568 22525
-                    </Link>
-                    <Link 
-                      href="https://wa.me/918156822525" 
-                      className="text-primary font-bold hover:underline flex items-center gap-2"
-                    >
-                      <MessageCircle className="w-4 h-4" /> Chat on WhatsApp
-                    </Link>
-                    <Link
-                      href="mailto:abhijitsebastian@gmail.com"
-                      className="text-foreground/70 hover:text-primary transition-colors text-sm flex items-center gap-2"
-                    >
-                      abhijitsebastian@gmail.com
-                    </Link>
+            <div className="space-y-8">
+              {contactInfo.map(({ icon: Icon, title, content, action }, i) => (
+                <motion.div
+                  key={title}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex gap-5"
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-white shadow-md flex items-center justify-center flex-shrink-0">
+                    <Icon className="text-primary w-5 h-5" />
                   </div>
-                </div>
-              </div>
-
-              <div className="flex gap-6">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center flex-shrink-0">
-                  <Clock className="text-primary w-7 h-7" />
-                </div>
-                <div>
-                  <h4 className="text-xl font-serif text-foreground mb-2">Opening Hours</h4>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Monday – Saturday: <br />
-                    10:00 AM – 07:00 PM <br />
-                    <span className="text-destructive font-medium mt-1 inline-block italic">Closed on Sundays</span>
-                  </p>
-                </div>
-              </div>
+                  <div>
+                    <h4 className="font-serif text-lg text-foreground mb-1.5">{title}</h4>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{content}</p>
+                    {action && (
+                      <Link
+                        href={action.href}
+                        target={action.external ? "_blank" : undefined}
+                        className="inline-flex items-center gap-1 mt-2 text-sm text-primary font-medium hover:underline"
+                      >
+                        <MapPin className="w-3 h-3" /> {action.label}
+                      </Link>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
             </div>
 
-            <div className="mt-12 p-6 bg-primary/5 border border-primary/10 rounded-2xl flex items-start gap-4">
-              <Info className="w-6 h-6 text-primary flex-shrink-0 mt-1" />
-              <div>
-                <p className="text-sm text-foreground font-medium mb-1">Affordable Specialist Care</p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Prior appointment recommended. Listed on Practo and Justdial for easy scheduling. Masks required on premises.
-                </p>
-              </div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="mt-10 p-5 bg-primary/5 border border-primary/10 rounded-2xl flex items-start gap-3"
+            >
+              <Info className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Prior appointment recommended. Listed on Practo and Justdial. Masks required on premises.
+              </p>
+            </motion.div>
           </motion.div>
 
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+          {/* Right — form */}
+          <motion.div
+            initial={{ opacity: 0, y: 24, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            className="glass-card p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl relative overflow-hidden group mt-12 lg:mt-0"
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="glass-card rounded-[2rem] p-8 sm:p-10 shadow-2xl shadow-primary/8 relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[4rem] group-hover:bg-primary/10 transition-colors duration-500" />
-            
-            <h3 className="text-2xl sm:text-3xl font-serif text-foreground mb-6 sm:mb-8">Quick Inquiry</h3>
-            <p className="text-sm sm:text-lg text-muted-foreground mb-8 sm:mb-10 leading-relaxed">
-              Have a question for our specialists? Leave your details and we'll get back to you shortly.
+            <div className="absolute top-0 right-0 w-40 h-40 bg-primary/4 rounded-bl-[4rem] pointer-events-none" />
+
+            <h3 className="text-2xl sm:text-3xl font-serif text-foreground mb-2">Quick Inquiry</h3>
+            <p className="text-muted-foreground text-sm mb-8 leading-relaxed">
+              Leave your details and our team will get back to you shortly.
             </p>
 
-            <form className="space-y-4 sm:space-y-6">
-              <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Your Name</label>
-                  <input 
-                    type="text" 
-                    placeholder="John Doe" 
-                    className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm sm:text-base"
+            <form className="space-y-5">
+              <div className="grid sm:grid-cols-2 gap-5">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-foreground uppercase tracking-wider">Your Name</label>
+                  <input
+                    type="text"
+                    placeholder="Full name"
+                    className="w-full px-4 py-3 bg-white/60 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
                   />
                 </div>
-                <div className="space-y-2">
-                  <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    placeholder="+91 00000 00000" 
-                    className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm sm:text-base"
+                <div className="space-y-1.5">
+                  <label className="text-xs font-bold text-foreground uppercase tracking-wider">Phone Number</label>
+                  <input
+                    type="tel"
+                    placeholder="+91 00000 00000"
+                    className="w-full px-4 py-3 bg-white/60 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
                   />
                 </div>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Treatment Interest</label>
-                <select className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none text-sm sm:text-base">
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-foreground uppercase tracking-wider">Treatment Interest</label>
+                <select className="w-full px-4 py-3 bg-white/60 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all appearance-none text-sm text-foreground">
                   <option>Root Canal Treatment (RCT)</option>
                   <option>Dental Implants</option>
-                  <option>Crowns & Bridges</option>
+                  <option>Crowns &amp; Bridges</option>
                   <option>Cosmetic Dentistry</option>
                   <option>General Checkup</option>
                   <option>Paediatric Care</option>
+                  <option>Wisdom Tooth Extraction</option>
                 </select>
               </div>
-              <div className="space-y-2">
-                <label className="text-xs sm:text-sm font-bold text-foreground px-1 uppercase tracking-wider">Message</label>
-                <textarea 
-                  rows={4} 
-                  placeholder="How can our specialists help you today?" 
-                  className="w-full px-5 sm:px-6 py-3 sm:py-4 bg-white/50 border border-border rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none text-sm sm:text-base"
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-foreground uppercase tracking-wider">Message</label>
+                <textarea
+                  rows={4}
+                  placeholder="How can our specialist help you today?"
+                  className="w-full px-4 py-3 bg-white/60 border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all resize-none text-sm"
                 />
               </div>
-              
-              <button className="w-full py-4 sm:py-5 bg-primary text-white rounded-xl sm:rounded-2xl font-bold hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-2 group shadow-xl shadow-primary/20">
-                Send Inquiry <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+
+              <motion.button
+                whileHover={{ scale: 1.01 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary/90 transition-colors flex items-center justify-center gap-2 group shadow-lg shadow-primary/20"
+              >
+                Send Inquiry
+                <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
             </form>
           </motion.div>
         </div>
