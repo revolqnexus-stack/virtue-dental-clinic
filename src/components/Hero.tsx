@@ -34,21 +34,21 @@ export default function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background layers */}
-      <div className="absolute inset-0 hero-gradient" />
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] -translate-y-1/4 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[100px] translate-y-1/4 -translate-x-1/4 pointer-events-none" />
+      {/* Background video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+        autoPlay
+        muted
+        loop
+        playsInline
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+      {/* Dark overlay */}
+      <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(0,0,0,0.4)", zIndex: 1 }} />
 
-      {/* Decorative grid */}
-      <div
-        className="absolute inset-0 opacity-[0.025] pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
-
-      <div className="relative container mx-auto px-6 py-16 lg:py-24">
+      <div className="relative z-10 container mx-auto px-6 py-16 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           {/* Left — text */}
@@ -183,7 +183,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
       >
         <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Scroll</span>
         <motion.div
