@@ -45,13 +45,13 @@ export default function Navbar() {
           style={{ boxShadow: `0 4px 30px rgba(0,0,0,${shadowOpacity})` }}
         />
 
-        <div className="relative container mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="relative container mx-auto px-6 py-2 flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center gap-2.5 group">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative w-20 h-20"
+              className="relative w-12 h-12"
             >
               <Image
                 src="/images/logo.png"
@@ -62,8 +62,8 @@ export default function Navbar() {
               />
             </motion.div>
             <div className="flex flex-col">
-              <span className="text-2xl font-serif font-bold text-foreground leading-none tracking-tight">VIRTUE</span>
-              <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-primary/70 mt-1">Dental Clinic</span>
+              <span className="text-lg font-serif font-bold text-foreground leading-none tracking-tight">VIRTUE</span>
+              <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-primary/70 mt-0.5">Dental Clinic</span>
             </div>
           </Link>
 

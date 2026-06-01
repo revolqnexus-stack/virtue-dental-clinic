@@ -26,7 +26,7 @@ export default function Hero() {
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "8%"]);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section ref={ref} className="relative min-h-screen flex items-center overflow-hidden pt-14">
 
       {/* Background video */}
       <video
