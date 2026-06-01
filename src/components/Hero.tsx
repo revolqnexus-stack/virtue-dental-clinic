@@ -75,7 +75,7 @@ export default function Hero() {
           </motion.p>
 
           {/* CTAs */}
-          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4">
+          <motion.div variants={item} className="flex flex-col sm:flex-row gap-4 mb-8">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.97 }}>
               <Link
                 href="https://wa.me/918156822525"
@@ -94,15 +94,26 @@ export default function Hero() {
               </Link>
             </motion.div>
           </motion.div>
+
+          {/* Stats — mobile only */}
+          <motion.div variants={item} className="flex sm:hidden items-center gap-5 pt-6 border-t border-white/20">
+            {stats.map((s, i) => (
+              <div key={s.label} className="flex items-center gap-2">
+                <span className="text-lg font-serif font-bold text-white">{s.value}</span>
+                <span className="text-[10px] text-white/55 uppercase tracking-widest font-semibold leading-tight max-w-[48px]">{s.label}</span>
+                {i < stats.length - 1 && <div className="w-px h-5 bg-white/20 ml-1" />}
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
 
-      {/* Bottom-left — inline stats */}
+      {/* Bottom-left — inline stats (desktop only) */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.6 }}
-        className="absolute bottom-10 left-6 lg:left-16 z-10 flex items-center gap-6 sm:gap-10"
+        className="absolute bottom-10 left-6 lg:left-16 z-10 hidden sm:flex items-center gap-6 sm:gap-10"
       >
         {stats.map((s, i) => (
           <div key={s.label} className="flex items-center gap-2.5">
@@ -113,12 +124,12 @@ export default function Hero() {
         ))}
       </motion.div>
 
-      {/* Bottom-right — hours + call card */}
+      {/* Bottom-right — hours + call card (desktop only) */}
       <motion.div
         initial={{ opacity: 0, y: 20, x: 20 }}
         animate={{ opacity: 1, y: 0, x: 0 }}
         transition={{ delay: 1.1, duration: 0.6 }}
-        className="absolute bottom-10 right-6 lg:right-16 z-10 glass-card rounded-2xl p-4 min-w-[200px] shadow-2xl"
+        className="absolute bottom-10 right-6 lg:right-16 z-10 glass-card rounded-2xl p-4 min-w-[200px] shadow-2xl hidden sm:block"
       >
         <div className="text-xs text-muted-foreground mb-0.5 uppercase tracking-widest font-semibold">Clinic Hours</div>
         <div className="font-bold text-foreground text-sm mb-0.5">Mon – Sat</div>
